@@ -1,24 +1,29 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight, ArrowUpRight, Layers3, ScanLine, BookOpen } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { InquiryBand } from "@/components/press-layout";
+import { pageMeta } from "@/lib/page-meta";
+import stillLife from "@/assets/publishing-still-life.jpg";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => pageMeta("Code to Print, Research to Global Books", "Algorism Press is building a careful publishing practice for technical, academic, and research-led books in Dhaka, Bangladesh."),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
+  return <>
+    <section className="hero">
+      <img className="hero-image" src={stillLife} alt="An editorial still life of clothbound books and an open book with mathematical diagrams" width={1600} height={1008} fetchPriority="high" />
+      <div className="hero-content page-width"><div className="eyebrow"><i className="status-dot"/> A PUBLISHING PRACTICE IN THE MAKING</div><h1>Algorism<br/>Press.</h1><p className="hero-tagline">Code to Print,<br/>Research to Global Books.</p><p className="hero-description">From structured ideas to lasting books.<br/>A careful home for technical, academic, and research-led writing — made clear, useful, and enduring.</p><div className="hero-actions"><Button size="lg" asChild><Link to="/publications">Explore Publications <ArrowUpRight/></Link></Button><Link to="/vision" className="text-link">Our Philosophy <ArrowRight size={14}/></Link></div></div>
+      <span className="hero-index">01 — THE BOOK AS A BUILT OBJECT</span>
+    </section>
+    <div className="standard-strip page-width"><div className="standard-label"><strong>AP</strong><span>THE ALGORISM STANDARD<br/>Scientia · Ratio · Veritas</span></div><p>Rooted in the mathematical discipline of 9th-century algorism,<br/>dedicated to modern global intellect.</p><ArrowUpRight className="text-primary" size={18}/></div>
+    <section className="section page-width"><div className="eyebrow"><span>01 / OUR VISION</span><span>IDEAS, GIVEN STRUCTURE.</span></div><div className="section-heading"><h2>Publishing is an<br/>act of building.</h2><p>A serious book is more than a manuscript on a page. It is an organized experience of arguments, examples, visuals, and references. We are building the practice to make that experience clear, useful, and durable.</p></div><div className="principle-grid">{[
+      { title: "Structure", text: "Turn complex material into a path readers can follow.", icon: Layers3 },
+      { title: "Clarity", text: "Give every page a clear purpose and a readable rhythm.", icon: ScanLine },
+      { title: "Continuity", text: "Build editions that remain useful beyond a single moment.", icon: BookOpen },
+    ].map(({title,text,icon:Icon},i)=><article className="principle" key={title}><div className="principle-top"><span>0{i+1}</span><Icon size={20} strokeWidth={1.3}/></div><h3>{title}</h3><p>{text}</p></article>)}</div><Link to="/vision" className="section-link">Discover our approach <ArrowRight size={14}/></Link></section>
+    <section className="work-band"><div className="section page-width"><div className="eyebrow"><span>02 / CURRENT WORK</span><span>SELECTED & IN DEVELOPMENT</span></div><div className="section-heading"><h2>Good work takes<br/>thoughtful preparation.</h2><div className="coming-soon"><span className="coming-dots">···</span><div><h3>Our first editions are on their way.</h3><p>Our first publications are still being prepared. This space will be updated when there is something real and ready to share.</p><Link to="/publications" className="section-link">View publication status <ArrowRight size={14}/></Link></div></div></div></div></section>
+    <InquiryBand/>
+  </>;
 }
