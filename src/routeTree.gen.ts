@@ -10,19 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as InstitutionalRouteImport } from './routes/institutional'
 import { Route as PublicationsRouteImport } from './routes/publications'
-import { Route as VisionRouteImport } from './routes/vision'
-import { Route as WhatWeDoRouteImport } from './routes/what-we-do'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const InstitutionalRoute = InstitutionalRouteImport.update({
-  id: '/institutional',
-  path: '/institutional',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PublicationsRoute = PublicationsRouteImport.update({
@@ -30,60 +22,31 @@ const PublicationsRoute = PublicationsRouteImport.update({
   path: '/publications',
   getParentRoute: () => rootRouteImport,
 } as any)
-const VisionRoute = VisionRouteImport.update({
-  id: '/vision',
-  path: '/vision',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const WhatWeDoRoute = WhatWeDoRouteImport.update({
-  id: '/what-we-do',
-  path: '/what-we-do',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/institutional': typeof InstitutionalRoute
   '/publications': typeof PublicationsRoute
-  '/vision': typeof VisionRoute
-  '/what-we-do': typeof WhatWeDoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/institutional': typeof InstitutionalRoute
   '/publications': typeof PublicationsRoute
-  '/vision': typeof VisionRoute
-  '/what-we-do': typeof WhatWeDoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/institutional': typeof InstitutionalRoute
   '/publications': typeof PublicationsRoute
-  '/vision': typeof VisionRoute
-  '/what-we-do': typeof WhatWeDoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    '/' | '/institutional' | '/publications' | '/vision' | '/what-we-do'
+  fullPaths: '/' | '/publications'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/institutional' | '/publications' | '/vision' | '/what-we-do'
-  id:
-    | '__root__'
-    | '/'
-    | '/institutional'
-    | '/publications'
-    | '/vision'
-    | '/what-we-do'
+  to: '/' | '/publications'
+  id: '__root__' | '/' | '/publications'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  InstitutionalRoute: typeof InstitutionalRoute
   PublicationsRoute: typeof PublicationsRoute
-  VisionRoute: typeof VisionRoute
-  WhatWeDoRoute: typeof WhatWeDoRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -95,13 +58,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/institutional': {
-      id: '/institutional'
-      path: '/institutional'
-      fullPath: '/institutional'
-      preLoaderRoute: typeof InstitutionalRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/publications': {
       id: '/publications'
       path: '/publications'
@@ -109,29 +65,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PublicationsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/vision': {
-      id: '/vision'
-      path: '/vision'
-      fullPath: '/vision'
-      preLoaderRoute: typeof VisionRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/what-we-do': {
-      id: '/what-we-do'
-      path: '/what-we-do'
-      fullPath: '/what-we-do'
-      preLoaderRoute: typeof WhatWeDoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  InstitutionalRoute: InstitutionalRoute,
   PublicationsRoute: PublicationsRoute,
-  VisionRoute: VisionRoute,
-  WhatWeDoRoute: WhatWeDoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
