@@ -10,6 +10,6 @@
 <!-- LOVABLE:END -->
 
 ## Website architecture
-- Shared publishing navigation and footer wrap Outlet in the root route; named editorial pages have individual leaf routes so URLs and metadata remain distinct.
+- Shared publishing navigation and footer wrap Outlet in the root route; home is one scrolling page with hash sections (vision, what-we-do, contact); only Publications is a separate route, by owner choice.
 - Keep static publishing content presentation-only and use direct email/phone links for inquiries; no simulated form submissions.
 - Define editorial visual roles in global semantic CSS tokens; use the existing Button for interactive controls.
