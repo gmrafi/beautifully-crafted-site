@@ -293,3 +293,4 @@ h1,h2 { font-family: var(--font-editorial); font-weight: 400; }
  .contact-details a { font-size:14px; }
 }
 @media (prefers-reduced-motion:no-preference) { .hero-content { animation: enter .65s ease-out both; } @keyframes enter { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } } }
+html { scroll-behavior: smooth; }
