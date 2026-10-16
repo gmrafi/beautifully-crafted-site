@@ -147,8 +147,8 @@
   --editorial-surface: oklch(0.952 0.01 100);
   --editorial-blue: oklch(0.56 0.19 270);
   --ink-inverse: oklch(0.98 0.003 100);
-  --font-editorial: "Libre Caslon Display", Georgia, serif;
-  --font-body: "DM Sans", Arial, sans-serif;
+  --font-editorial: "Playfair Display", Georgia, serif;
+  --font-body: "Lora", Georgia, serif;
 }
 @theme inline {
   --color-editorial-surface: var(--editorial-surface);
