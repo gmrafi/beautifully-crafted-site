@@ -16,7 +16,7 @@ export function PressLayout({ children }: { children: ReactNode }) {
   return <>
     <div className="location-bar"><div className="page-width"><span><i className="status-dot" /> DHAKA CANTONMENT, BANGLADESH</span><span>INDEPENDENT IDEAS. LASTING EDITIONS.</span></div></div>
     <header className="site-header page-width">
-      <Link to="/" className="brand" aria-label="Algorism Press home" onClick={() => setOpen(false)}><img src={logo.url} alt="Algorism Press AP logo" width={56} height={48} /><span>ALGORISM PRESS<small>Code to Print, Research to Global Books</small></span></Link>
+      <Link to="/" className="brand" aria-label="Algorism Press home" onClick={() => setOpen(false)}><img src={logo.url} alt="Algorism Press AP logo" width={68} height={62} /><span>ALGORISM PRESS<small>Code to Print, Research to Global Books</small></span></Link>
       <nav className="desktop-nav" aria-label="Main navigation">{navigation.map(item => <Link key={item.to} to={item.to} activeProps={{ className: "nav-active" }}>{item.label}</Link>)}</nav>
       <Button variant="outline" className="header-inquire" asChild><a href="mailto:rafi@gmrafi.com.bd">Inquire <ArrowUpRight /></a></Button>
       <Button variant="ghost" size="icon" className="mobile-menu-toggle" aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</Button>
