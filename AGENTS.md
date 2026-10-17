@@ -14,3 +14,4 @@
 - Keep static publishing content presentation-only and use direct email/phone links for inquiries; no simulated form submissions.
 - Define editorial visual roles in global semantic CSS tokens; use the existing Button for interactive controls.
 - Keep public editorial standards and distribution descriptions in the scrolling home page; use direct manuscript email inquiries, so confidential production logic never needs to enter the public site.
+- Use the shared EditorialImage component for supporting photography with intrinsic dimensions, lazy loading, and illustrative provenance captions so generated scenes cannot be mistaken for documentary evidence or available products.

@@ -218,6 +218,16 @@ h1,h2 { font-family: var(--font-editorial); font-weight: 400; }
 .heritage-grid p { font-size:17px; line-height:1.85; max-width:560px; }
 .heritage-grid p+p { margin-top:18px; }
 .heritage-motto { display:block; margin-top:28px; font-style:italic; font-size:18px; }
+.editorial-image { margin:0; min-width:0; }
+.editorial-image img { display:block; width:100%; height:auto; aspect-ratio:3 / 2; object-fit:contain; }
+.editorial-image figcaption { display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px 20px; padding-top:12px; font-size:11px; line-height:1.6; color:var(--muted-foreground); }
+.heritage-grid .editorial-image { margin-top:32px; }
+.heritage-grid .editorial-image figcaption { color:var(--heritage-foreground); }
+.distribution-layout { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,1fr); align-items:start; gap:48px; margin-top:48px; }
+.distribution-layout .format-grid { grid-template-columns:minmax(0,1fr); gap:28px; margin-top:0; }
+.distribution-layout .format-grid article:first-child { padding-top:0; border-top:0; }
+.distribution-layout .format-grid h3 { margin-top:12px; font-size:26px; }
+.authors-section .editorial-image { margin-top:30px; }
 .format-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:48px; margin-top:48px; }
 .format-grid article { display:grid; grid-template-columns:44px minmax(0,1fr); gap:20px; padding-top:28px; border-top:1px solid var(--border); }
 .format-mark { color:var(--primary); }
@@ -301,6 +311,9 @@ h1,h2 { font-family: var(--font-editorial); font-weight: 400; }
  .heritage-grid { grid-template-columns:minmax(0,1fr); gap:26px; }
  .heritage-grid h2 { font-size:38px; }
  .heritage-grid p { font-size:16px; }
+ .distribution-layout { grid-template-columns:minmax(0,1fr); gap:30px; margin-top:30px; }
+ .distribution-layout .format-grid article:first-child { padding-top:28px; border-top:1px solid var(--border); }
+ .heritage-grid .editorial-image { margin-top:26px; }
  .format-grid { grid-template-columns:minmax(0,1fr); gap:32px; margin-top:30px; }
  .format-grid article { grid-template-columns:32px minmax(0,1fr); gap:16px; }
  .format-grid h3 { font-size:26px; }
