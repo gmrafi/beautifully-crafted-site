@@ -2,3 +2,5 @@
 - [x] Build editorial design, shared navigation, and original logo integration.
 - [x] Build home, vision, services, publications, and institutional contact pages.
 - [x] Verify navigation, mobile layout, contact actions, page metadata, and tests.
+- [ ] Refine public editorial standards, author inquiries, digital and print positioning, and maternal family heritage without adding book showcases.
+- [ ] Improve typography and mobile spacing; verify navigation, contact links, and page rendering.
