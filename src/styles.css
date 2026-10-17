@@ -293,7 +293,7 @@ h1,h2 { font-family: var(--font-editorial); font-weight: 400; }
  .standard-strip p { grid-column:1 / -1; grid-row:2; max-width:none; font-size:13px; }
  .standard-label { gap:10px; min-width:0; }
  .standard-label span { font-size:10px; }
- .standard-strip p { font-size:11px; max-width:170px; }
+ .standard-strip p { font-size:13px; max-width:none; }
  .section { padding-block:52px; }
  .section-heading,.work-band .section-heading { grid-template-columns:1fr; gap:20px; }
  .section-heading h2 { font-size:38px; }
