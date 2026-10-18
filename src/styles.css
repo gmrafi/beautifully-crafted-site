@@ -343,3 +343,22 @@ h1,h2 { font-family: var(--font-editorial); font-weight: 400; }
 @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
 @media (prefers-reduced-motion:no-preference) { .hero-content { animation: enter .65s ease-out both; } @keyframes enter { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } } }
 html { scroll-behavior: smooth; }
+
+/* Subject disciplines, FAQ, adoption note, colophon */
+.faq-list { margin-top:44px; border-top:1px solid var(--border); }
+.faq-item { border-bottom:1px solid var(--border); }
+.faq-item summary { cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:20px 0; font-family:"Playfair Display",serif; font-size:21px; font-weight:500; color:var(--foreground); }
+.faq-item summary::after { content:"+"; font-family:"Lora",serif; font-size:20px; color:var(--primary); flex-shrink:0; }
+.faq-item[open] summary::after { content:"–"; }
+.faq-item summary::-webkit-details-marker { display:none; }
+.faq-item p { margin:0; padding:0 0 22px; font-size:16px; line-height:1.75; color:var(--muted-foreground); max-width:64ch; }
+.adoption-note { border-top:1px solid var(--border); }
+.colophon { padding-block:48px 64px; border-top:1px solid var(--border); text-align:center; }
+.colophon .eyebrow { justify-content:center; margin-bottom:18px; }
+.colophon p { margin:0 auto; max-width:56ch; font-family:"Lora",serif; font-style:italic; font-size:17px; line-height:1.8; color:var(--muted-foreground); }
+@media (max-width:768px) {
+ .faq-item summary { font-size:18px; padding:16px 0; }
+ .faq-item p { font-size:15px; }
+ .colophon { padding-block:40px 52px; }
+ .colophon p { font-size:15px; }
+}
