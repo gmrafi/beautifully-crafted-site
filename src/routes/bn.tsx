@@ -1,0 +1,51 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight, ArrowUpRight, Layers3, ScanLine, BookOpen } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { pageMeta } from "@/lib/page-meta";
+import logo from "@/assets/algorism-press-logo.jpg.asset.json";
+import stillLife from "@/assets/publishing-still-life.jpg";
+import letterpress from "@/assets/letterpress-heritage.jpg";
+import screenAndPage from "@/assets/screen-and-page.jpg";
+import editorialWorkspace from "@/assets/editorial-workspace.jpg";
+import { EditorialImage } from "@/components/editorial-image";
+
+export const Route = createFileRoute("/bn")({
+  head: () => pageMeta("কোড থেকে মুদ্রণ, গবেষণা থেকে বিশ্বমানের বই", "অ্যালগোরিজম প্রেস প্রযুক্তি, গবেষণা ও একাডেমিক বিষয়ের বইয়ের জন্য একটি যত্নশীল প্রকাশনা-পদ্ধতি গড়ে তুলছে।"),
+  component: BanglaHome,
+});
+
+function BanglaHome() {
+  return <>
+    <section className="hero">
+      <img className="hero-image" src={stillLife} alt="কাপড়ে বাঁধানো বই ও গাণিতিক চিত্রসহ একটি খোলা বইয়ের স্টিল-লাইফ" width={1600} height={1008} fetchPriority="high" />
+      <div className="hero-content page-width"><div className="eyebrow"><i className="status-dot"/> একটি প্রকাশনা-পদ্ধতি, তৈরির পথে</div><h1>অ্যালগোরিজম<br/>প্রেস।</h1><p className="hero-tagline">কোড থেকে মুদ্রণ,<br/>গবেষণা থেকে বিশ্বমানের বই।</p><p className="hero-description">গোছানো ভাবনা থেকে দীর্ঘস্থায়ী বই।<br/>প্রযুক্তি, গবেষণা ও একাডেমিক বিষয়ের বইয়ের জন্য একটি যত্নশীল প্রকাশনা-পদ্ধতি।</p><div className="hero-actions"><Button size="lg" asChild><Link to="/publications">গ্রন্থসম্ভার দেখুন <ArrowUpRight/></Link></Button><Link to="/bn" hash="vision" className="text-link">আমাদের দর্শন <ArrowRight size={14}/></Link></div></div>
+      <span className="hero-index">01 / বই, একটি নির্মিত জ্ঞান</span>
+    </section>
+    <div className="standard-strip page-width"><div className="standard-label"><img src={logo.url} alt="অ্যালগোরিজম প্রেসের সিল" width={64} height={58} loading="lazy" /><span>অ্যালগোরিজম মানদণ্ড<br/>জ্ঞান · যুক্তি · সত্য</span></div><p>নবম শতকের গণিতচর্চার ঐতিহ্য থেকে অনুপ্রাণিত;<br/>আধুনিক জ্ঞান ও মুক্তচিন্তার প্রতি নিবেদিত।</p><ArrowUpRight className="text-primary" size={18}/></div>
+    <section id="vision" className="section page-width scroll-mt-8">
+      <div className="eyebrow"><span>01 / আমাদের দর্শন</span><span>জ্ঞান, গোছানো কাঠামোতে।</span></div>
+      <div className="section-heading"><h2>মাধ্যম বদলায়।<br/>উদ্দেশ্য টিকে থাকে।</h2><div><p>বইকে আমরা নির্মিত জ্ঞান হিসেবে দেখি। গুরুত্বপূর্ণ ধারণার এমন একটি কাঠামো দরকার, যা সময় পেরিয়েও টিকে থাকে।</p><p>একটি ভালো বই শুধু পৃষ্ঠায় লেখা কিছু কথা নয়। যুক্তি, উদাহরণ, ছবি ও তথ্যসূত্রকে একসঙ্গে সাজিয়ে পাঠকের জন্য একটি গোছানো অভিজ্ঞতা তৈরি করতে হয়। সেই কাজটিকে পরিষ্কার, উপযোগী ও টেকসই করার পদ্ধতিই আমরা গড়ে তুলছি।</p></div></div>
+      <div className="principle-grid">{[
+        { title: "কাঠামো", text: "জটিল বিষয়কে এমনভাবে সাজানো, যাতে পাঠক সহজে এগোতে পারেন।", icon: Layers3 },
+        { title: "স্বচ্ছতা", text: "প্রতিটি পৃষ্ঠার উদ্দেশ্য স্পষ্ট রাখা এবং পড়ার স্বাভাবিক ছন্দ তৈরি করা।", icon: ScanLine },
+        { title: "স্থায়িত্ব", text: "একটি নির্দিষ্ট সময়ের পরেও কাজে লাগে, এমন সংস্করণ তৈরি করা।", icon: BookOpen },
+      ].map(({title,text,icon:Icon},i)=><article className="principle" key={title}><div className="principle-top"><span>0{i+1}</span><Icon size={22} strokeWidth={1.3}/></div><h3>{title}</h3><p>{text}</p></article>)}</div>
+    </section>
+    <section className="heritage-band"><div className="section page-width heritage-grid"><div><span className="eyebrow">একটি ব্যক্তিগত উত্তরাধিকার</span><h2>ভিন্ন যুগের হাতিয়ার।<br/>পরিচিত একই উদ্দেশ্য।</h2><EditorialImage src={letterpress} alt="ঐতিহ্যবাহী লেটারপ্রেস ওয়ার্কবেঞ্চে মেটাল মুভেবল টাইপ, কম্পোজিং স্টিক ও ইনক রোলার" caption="মুদ্রিত পৃষ্ঠার কারুকাজ। এটি কোনো পারিবারিক আর্কাইভের ছবি নয়।" /></div><div><p>আমাদের প্রতিষ্ঠাতার নানা তাঁর যৌবনে একটি প্রিন্টিং প্রেসে কাজ করতেন। তাঁর অভিজ্ঞতা একটি স্থায়ী দৃষ্টিভঙ্গি দিয়ে গেছে: জ্ঞান ভাগ করে নেওয়ার উপায় বদলায়, কিন্তু তাকে কাঠামো দেওয়ার প্রয়োজন থেকেই যায়।</p><p>অ্যালগোরিজম প্রেস সেই অনুপ্রেরণাকে একটি স্বাধীন প্রকাশনা-পদ্ধতিতে ধারণ করছে, মুদ্রিত পৃষ্ঠার যত্নকে ডিজিটাল সংস্করণ ও প্রিন্ট-অন-ডিমান্ডে নিয়ে আসছে।</p><span className="heritage-motto">জ্ঞান · যুক্তি · সত্য</span></div></div></section>
+    <section className="section manifesto page-width founder-epigraph"><span className="eyebrow">প্রতিষ্ঠাতার ভাষ্য</span><blockquote>“একটি বই হলো ভাবনার এক দীর্ঘস্থায়ী স্থাপত্য। ক্ষণস্থায়ী সংকেতের যুগে আমি গণনামূলক নিখুঁততা ও প্রাতিষ্ঠানিক দায়িত্ববোধ নিয়ে পৃষ্ঠা নির্মাণ করতে চাই।”</blockquote><cite>মোঃ গোলাম মুবাশশির রাফি<span>প্রতিষ্ঠাতা ও স্থপতি, অ্যালগোরিজম প্রেস</span></cite></section>
+    <section id="what-we-do" className="section page-width scroll-mt-8">
+      <div className="eyebrow"><span>02 / অ্যালগোরিজম মানদণ্ড</span><span>ভাবনা থেকে সংস্করণ, সম্পাদকীয় যত্ন।</span></div>
+      <div className="section-heading"><h2>একটি বই, একটি সম্পূর্ণ ব্যবস্থা।<br/>প্রতিটি অংশই গুরুত্বপূর্ণ।</h2><p>লেখা, ডায়াগ্রাম, উদাহরণ, তথ্যসূত্র ও পৃষ্ঠা-নকশার একসঙ্গে কাজ করা উচিত। আমাদের প্রকাশ্য মানদণ্ড সরল: বিষয়ের প্রতি সম্মান, পাঠকের প্রতি সহায়তা, এবং সংস্করণের প্রতি যত্ন।</p></div>
+      <div className="principle-grid">{[
+        ["সম্পাদকীয় বিবেচনা", "উদ্দেশ্য বিবেচনা", "অভিপ্রেত পাঠক, কাজের পরিধি এবং এটি যে অবদান রাখতে চায়, তা চিহ্নিত করা। প্রাসঙ্গিকতা, সামঞ্জস্য ও উপযোগিতার ভিত্তিতে উপাদান বাছাই।"],
+        ["পাঠককেন্দ্রিক নকশা", "পড়ার অভিজ্ঞতা গড়া", "যুক্তি, সমীকরণ, কোডের উদাহরণ ও চিত্রকে একটি সুসংগত পড়ার অভিজ্ঞতায় আনা। উপস্থাপনাকে বিষয়ের হাতে পরিচালিত হতে দেওয়া।"],
+        ["সংস্করণ প্রস্তুতি", "সমগ্রটির পর্যালোচনা", "লেখা ও উপস্থাপনা একসঙ্গে পর্যালোচনা, অভিপ্রেত ডিজিটাল বা মুদ্রিত ফরম্যাটে নেভিগেশন, তথ্যসূত্র ও পাঠযোগ্যতার দিকে মনোযোগ।"],
+      ].map(([k,t,p],i)=><article className="principle" key={t}><div className="principle-top"><span>0{i+1} / {k}</span></div><h3>{t}</h3><p>{p}</p></article>)}</div>
+    </section>
+    <section className="work-band"><div className="section page-width"><div className="eyebrow"><span>03 / সংস্করণ ও বিতরণ</span><span>স্ক্রিন ও পৃষ্ঠা।</span></div><div className="section-heading"><h2>ডিজিটাল পৌঁছানো।<br/>দীর্ঘস্থায়ী পৃষ্ঠা।</h2><p>ডিজিটাল বিতরণ আমাদের দিকনির্দেশনার কেন্দ্রে, তার পাশাপাশি প্রিন্ট-অন-ডিমান্ড। প্রতিটি প্রকাশনার ফরম্যাট ও প্রাপ্যতা আলাদাভাবে নিশ্চিত হয়, সব বইয়ের জন্য আগে থেকে ধরে নেওয়া হয় না।</p></div><div className="distribution-layout"><EditorialImage src={screenAndPage} alt="একটি খোলা জ্যামিতি প্রমাণের বই এবং পাশে একই পৃষ্ঠা দেখাচ্ছে একটি ই-রিডার" caption="স্ক্রিন ও পৃষ্ঠা। একটি ধারণাগত সংস্করণ, কোনো গ্রন্থসম্ভারের বই নয়।" /><div className="format-grid"><article><span className="format-mark"><ScanLine size={30} strokeWidth={1.2}/></span><div><span className="eyebrow">ডিজিটাল সংস্করণ</span><h3>সুবিবেচিত পড়ার অভিজ্ঞতা।</h3><p>গোছানো ডিজিটাল প্রকাশনা, যা বইয়ের স্বচ্ছতাকে স্ক্রিনে নিয়ে আসে, বিন্যাস ও তথ্যসূত্রে যত্নশীল মনোযোগসহ।</p></div></article><article><span className="format-mark"><BookOpen size={30} strokeWidth={1.2}/></span><div><span className="eyebrow">প্রিন্ট-অন-ডিমান্ড</span><h3>মুদ্রিত বইয়ের একটি জায়গা।</h3><p>মুদ্রণ আমাদের প্রকাশনা-দিকনির্দেশনার অংশ। কোনো সংস্করণের জন্য নিশ্চিত হলে প্রিন্ট-অন-ডিমান্ড বিকল্প ও স্পেসিফিকেশন জানানো হবে।</p></div></article></div></div></div></section>
+    <section className="section page-width authors-section"><div className="eyebrow"><span>04 / লেখক ও গবেষকদের জন্য</span><span>প্রতিশ্রুতির আগে আলাপ।</span></div><div className="section-heading"><div><h2>গুরুত্বপূর্ণ কাজ।<br/>ভাবনাসম্পন্ন সহযোগিতা।</h2><EditorialImage src={editorialWorkspace} alt="সম্পাদকীয় ডেস্কে একাডেমিক পাণ্ডুলিপির প্রুফ, রেফারেন্স নোট, কলম ও পেনসিল" caption="একটি সংস্করণের পেছনের যত্ন। একটি চিত্রণমূলক সম্পাদকীয় কর্মপরিবেশ।" /></div><div><p>কোর্স টেক্সট, মনোগ্রাফ ও গবেষণাভিত্তিক বই নিয়ে শিক্ষাবিদ, গবেষক ও প্রযুক্তি লেখকদের সঙ্গে আলাপে আমরা স্বাগত জানাই।</p><p>শুরু করুন বিষয়, অভিপ্রেত পাঠক এবং পাণ্ডুলিপির বর্তমান অবস্থা দিয়ে। সম্পাদকীয় পরিধি, অধিকার, দায়িত্ব ও যেকোনো বাণিজ্যিক শর্ত কাজ শুরুর আগে আলোচিত ও লিখিতভাবে নির্ধারিত হবে।</p><Button size="lg" className="mt-7" asChild><a href="mailto:rafi@gmrafi.com.bd?subject=Author%20Inquiry%20-%20Algorism%20Press">পাণ্ডুলিপি নিয়ে আলাপ করুন <ArrowUpRight/></a></Button></div></div><div className="author-topics"><span>কোর্স টেক্সট</span><span>টেকনিক্যাল মনোগ্রাফ</span><span>গবেষণাভিত্তিক বই</span></div></section>
+    <section className="section manifesto page-width editorial-statement"><span className="eyebrow">আমাদের সম্পাদকীয় অঙ্গীকার</span><blockquote>“ভালো লেখা, ভাবনাসম্পন্ন নকশা আর নির্ভরযোগ্য কাজ, এই তিনের সমন্বয়ে আমরা প্রকাশনার একটি যত্নশীল পদ্ধতি গড়ে তুলছি।”</blockquote></section>
+    <section id="contact" className="section page-width contact-grid scroll-mt-8"><div><span className="eyebrow">05 / প্রাতিষ্ঠানিক ও যোগাযোগ</span><h2>গুরুত্বপূর্ণ গবেষণার জন্য একটি যত্নশীল ঠিকানা।</h2><p>একাডেমিক শিক্ষক, প্রতিষ্ঠান ও বিশ্ববিদ্যালয় প্রেসের জন্য: আপনার পাণ্ডুলিপি, পাঠক এবং ভাবনার সংস্করণ নিয়ে আলাপ করি।</p><Button size="lg" asChild><a href="mailto:rafi@gmrafi.com.bd?subject=Institutional%20Inquiry%20-%20Algorism%20Press">প্রাতিষ্ঠানিক যোগাযোগ <ArrowUpRight/></a></Button></div><div className="contact-details"><a href="mailto:rafi@gmrafi.com.bd"><span>ইমেইল</span><span className="contact-value">rafi@gmrafi.com.bd <ArrowUpRight size={16}/></span></a><a href="tel:+8801353030714"><span>ফোন</span><span className="contact-value">+880 1353-030714 <ArrowUpRight size={16}/></span></a><div><span>ঠিকানা</span><span className="contact-value">ঢাকা সেনানিবাস,<br/>ঢাকা, বাংলাদেশ।</span></div><a href="https://github.com/AlgorismPress" target="_blank" rel="noreferrer"><span>রিপোজিটরি</span><span className="contact-value">github.com/AlgorismPress <ArrowUpRight size={16}/></span></a></div></section>
+    <footer className="colophon page-width"><span className="eyebrow">কলোফন</span><p>এই সাইটটি প্লেফেয়ার ডিসপ্লে ও লোরা ফন্টে সাজানো, পাণ্ডিত্যপূর্ণ পৃষ্ঠার ঐতিহ্যে। এটি সেই একই বিশ্বাস দিয়ে নির্মিত, যা আমরা আমাদের সংস্করণে আনি: বই, একটি নির্মিত জ্ঞান, কোড থেকে মুদ্রণ পর্যন্ত।</p></footer>
+  </>;
+}
