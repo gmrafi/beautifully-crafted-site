@@ -15,3 +15,4 @@
 - Define editorial visual roles in global semantic CSS tokens; use the existing Button for interactive controls.
 - Keep public editorial standards and distribution descriptions in the scrolling home page; use direct manuscript email inquiries, so confidential production logic never needs to enter the public site.
 - Use the shared EditorialImage component for supporting photography with intrinsic dimensions, lazy loading, and illustrative provenance captions so generated scenes cannot be mistaken for documentary evidence or available products.
+- English lives at / and Bangla at /bn as parallel scrolling pages; PressLayout derives the language from the path so navigation, footer, and the EN / বাংলা switch stay in the visitor's language.
