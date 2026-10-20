@@ -11,7 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BnRouteImport } from './routes/bn'
+import { Route as BrandRouteImport } from './routes/brand'
 import { Route as PublicationsRouteImport } from './routes/publications'
+import { Route as BnBrandRouteImport } from './routes/bn_.brand'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -23,40 +25,58 @@ const BnRoute = BnRouteImport.update({
   path: '/bn',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BrandRoute = BrandRouteImport.update({
+  id: '/brand',
+  path: '/brand',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PublicationsRoute = PublicationsRouteImport.update({
   id: '/publications',
   path: '/publications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BnBrandRoute = BnBrandRouteImport.update({
+  id: '/bn_/brand',
+  path: '/bn/brand',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bn': typeof BnRoute
+  '/brand': typeof BrandRoute
   '/publications': typeof PublicationsRoute
+  '/bn/brand': typeof BnBrandRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bn': typeof BnRoute
+  '/brand': typeof BrandRoute
   '/publications': typeof PublicationsRoute
+  '/bn/brand': typeof BnBrandRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/bn': typeof BnRoute
+  '/brand': typeof BrandRoute
   '/publications': typeof PublicationsRoute
+  '/bn_/brand': typeof BnBrandRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/bn' | '/publications'
+  fullPaths: '/' | '/bn' | '/brand' | '/publications' | '/bn/brand'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/bn' | '/publications'
-  id: '__root__' | '/' | '/bn' | '/publications'
+  to: '/' | '/bn' | '/brand' | '/publications' | '/bn/brand'
+  id: '__root__' | '/' | '/bn' | '/brand' | '/publications' | '/bn_/brand'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BnRoute: typeof BnRoute
+  BrandRoute: typeof BrandRoute
   PublicationsRoute: typeof PublicationsRoute
+  BnBrandRoute: typeof BnBrandRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -75,11 +95,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BnRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/brand': {
+      id: '/brand'
+      path: '/brand'
+      fullPath: '/brand'
+      preLoaderRoute: typeof BrandRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/publications': {
       id: '/publications'
       path: '/publications'
       fullPath: '/publications'
       preLoaderRoute: typeof PublicationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bn_/brand': {
+      id: '/bn_/brand'
+      path: '/bn/brand'
+      fullPath: '/bn/brand'
+      preLoaderRoute: typeof BnBrandRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -88,7 +122,9 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BnRoute: BnRoute,
+  BrandRoute: BrandRoute,
   PublicationsRoute: PublicationsRoute,
+  BnBrandRoute: BnBrandRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
