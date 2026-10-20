@@ -149,8 +149,8 @@
   --heritage-surface: oklch(0.3 0.045 163);
   --heritage-foreground: oklch(0.97 0.009 100);
   --ink-inverse: oklch(0.98 0.003 100);
-  --font-editorial: "Playfair Display", Georgia, serif;
-  --font-body: "Lora", Georgia, serif;
+  --font-editorial: "Playfair Display", "Noto Serif Bengali", Georgia, serif;
+  --font-body: "Lora", "Noto Serif Bengali", Georgia, serif;
 }
 @theme inline {
   --color-editorial-surface: var(--editorial-surface);
@@ -168,6 +168,10 @@ h1,h2 { font-family: var(--font-editorial); font-weight: 400; }
 .location-bar { border-bottom: 1px solid var(--border); font-size: 11px; letter-spacing: 0; }
 .location-bar .page-width { display:flex; justify-content:space-between; align-items:center; height:32px; }
 .location-bar span:first-child { display:flex; align-items:center; gap:9px; }
+.lang-switch { display:flex; align-items:center; gap:7px; font-size:12px; color:var(--muted-foreground); }
+.lang-switch a { padding:4px 2px; }
+.lang-switch a:hover,.lang-switch .lang-active { color:var(--primary); }
+.lang-switch .lang-active { font-weight:600; text-decoration:underline; text-underline-offset:4px; }
 .status-dot { display:inline-block; width:5px; height:5px; border-radius:50%; background:var(--primary); flex-shrink:0; }
 .site-header { display:flex; align-items:center; justify-content:space-between; gap:24px; min-height:99px; }
 .brand { display:flex; align-items:center; gap:12px; min-width:0; }
@@ -286,7 +290,7 @@ h1,h2 { font-family: var(--font-editorial); font-weight: 400; }
 @media (max-width:1100px) { .page-width { width:calc(100% - 64px); } .desktop-nav { gap:17px; font-size:14px; } .brand small { display:none; } .brand span { font-size:14px; } .hero h1 { font-size:80px; } .footer-grid { gap:40px; } .section-heading,.heritage-grid { gap:36px; } }
 @media (max-width:760px) {
  .page-width { width:calc(100% - 40px); }
- .location-bar span:last-child { display:none; }
+ .location-bar .location-motto { display:none; }
  .site-header { display:grid; grid-template-columns:minmax(0,1fr) auto; min-height:90px; gap:12px; }
  .desktop-nav,.header-inquire { display:none; }
  .mobile-menu-toggle { display:inline-flex; }
@@ -362,3 +366,8 @@ html { scroll-behavior: smooth; }
  .colophon { padding-block:40px 52px; }
  .colophon p { font-size:15px; }
 }
+
+.distinctions-grid { grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:64px; row-gap:44px; }
+.distinctions-grid .principle p { max-width:520px; }
+.lang-bn .principle h3,.lang-bn h1,.lang-bn h2 { line-height:1.35; }
+@media (max-width:760px) { .distinctions-grid { grid-template-columns:minmax(0,1fr); row-gap:28px; } }

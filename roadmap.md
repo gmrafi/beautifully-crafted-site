@@ -4,4 +4,7 @@
 - [x] Verify navigation, mobile layout, contact actions, page metadata, and tests.
 - [x] Refine public editorial standards, author inquiries, digital and print positioning, and maternal family heritage without adding book showcases.
 - [x] Improve typography and mobile spacing; verify navigation, contact links, and page rendering.
-- [x] Add illustrative editorial photography to heritage, distribution, and author sections; preserve the hero and verify image rendering and small-screen layouts.- [x] Add subject disciplines, author FAQ, institutional adoption note, and typographic colophon; styles and tests verified.
+- [x] Add illustrative editorial photography to heritage, distribution, and author sections; preserve the hero and verify image rendering and small-screen layouts.
+- [x] Add subject disciplines, author FAQ, institutional adoption note, and typographic colophon; styles and tests verified.
+- [x] Finish Bangla version: EN / বাংলা switch, Bangla navigation and footer, Bengali font.
+- [x] Add Institutional Distinctions (ISBN, Crossref DOI, typesetting, dual format, metadata) in English and Bangla.
